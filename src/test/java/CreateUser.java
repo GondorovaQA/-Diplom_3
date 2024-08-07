@@ -24,8 +24,8 @@ public class CreateUser {
     }
 
     private String createUserAndGetToken() {
-        String randomName = generateRandomString(8, true); // Генерация случайного имени длиной 8 символов
-        String randomEmail = generateRandomString(12, true); // Генерация адреса электронной почты длиной 12 символов
+        String randomName = generateRandomString(8);
+        String randomEmail = generateRandomEmail(12);
         Response response = given()
                 .baseUri("https://stellarburgers.nomoreparties.site")
                 .basePath("/api/auth/register")
@@ -40,7 +40,7 @@ public class CreateUser {
         return accessToken;
     }
 
-    private String generateRandomString(int totalLength, boolean isEmail) {
+    private String generateRandomString(int totalLength) {
         SecureRandom random = new SecureRandom();
         StringBuilder sb = new StringBuilder(totalLength);
 
@@ -50,11 +50,12 @@ public class CreateUser {
             sb.append(character);
         }
 
-        if (isEmail) {
-            sb.insert(totalLength - 4, "@gmail.com");
-        }
-
         return sb.toString();
+    }
+
+    private String generateRandomEmail(int lengthBeforeDomain) {
+        String localPart = generateRandomString(lengthBeforeDomain);
+        return localPart + "@gmail.com";
     }
 
     @After

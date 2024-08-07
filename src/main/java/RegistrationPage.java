@@ -38,6 +38,7 @@ public class RegistrationPage  {
 
     private By recoveryPasswordLink = By.xpath("//*[@id='root']/div/main/div/div/p[2]/a");
 
+
     private String generateRandomString(int totalLength, boolean isEmail) {
         Random random = new Random();
         StringBuilder sb = new StringBuilder(totalLength);
@@ -99,6 +100,7 @@ public class RegistrationPage  {
     public void clickRecoveryPasswordLink() {
         driver.findElement(recoveryPasswordLink).click();
     }
+
 
 
     }

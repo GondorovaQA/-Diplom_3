@@ -20,6 +20,7 @@ public class LoginTest extends CreateUser {
         MainPage objMainPage = new MainPage(driver);
         objMainPage.setLoginEmail();
         objMainPage.setLoginPassword();
+
         objMainPage.checkMainLogin();
 
     }

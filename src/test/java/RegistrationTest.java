@@ -21,9 +21,9 @@ public class RegistrationTest  {
     @Step
     public void successfulRegistration() {
         driver.get(MAIN_URL);
-        Header objHeader = new Header(createWebDriver());
+        Header objHeader = new Header(driver);
         objHeader.clickPersonalAccount();
-        RegistrationPage objRegistrationPage = new RegistrationPage(createWebDriver());
+        RegistrationPage objRegistrationPage = new RegistrationPage(driver);
         objRegistrationPage.submitRegistrationButton();
         objRegistrationPage.setNameInput();
         objRegistrationPage.setEmailInput();
@@ -36,9 +36,9 @@ public class RegistrationTest  {
     @Step
     public void errorPassword() {
         driver.get(MAIN_URL);
-        Header objHeader = new Header(createWebDriver());
+        Header objHeader = new Header(driver);
         objHeader.clickPersonalAccount();
-        RegistrationPage objRegistrationPage = new RegistrationPage(createWebDriver());
+        RegistrationPage objRegistrationPage = new RegistrationPage(driver);
         objRegistrationPage.submitRegistrationButton();
         objRegistrationPage.setNameInput();
         objRegistrationPage.setEmailInput();

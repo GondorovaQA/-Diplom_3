@@ -45,6 +45,9 @@ public class MainPage {
     // Локатор для кнопки "Войти" в личном кабинете
     private By personalAccountLoginButton = By.xpath("//*[@id='root']/div/main/div/form/button");
 
+    private By personalAccount = By.xpath("//*[@id='root']/div/header/nav/a");
+
+
 
     public void loginAccount() {
         driver.findElement(loginAccountButton).click();
@@ -78,10 +81,11 @@ public class MainPage {
 
     public void checkMainLogin() {
         driver.findElement(personalAccountLoginButton).click();
-        String expectedUrl = "https://stellarburgers.nomoreparties.site/"; // Ожидаемый URL - главная страница
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Ожидание до 5 секунд
-        wait.until(ExpectedConditions.urlToBe(expectedUrl)); // Ожидание того, что URL станет ожидаемым
-        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl); // Проверка, что текущий URL соответствует ожидаемому
+        driver.findElement(personalAccount).click();
+        String expectedUrl = "https://stellarburgers.nomoreparties.site/account/profile";
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
 

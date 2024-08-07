@@ -14,19 +14,33 @@ public class ConstructorTest {
     @Before
     public void setUp() {
         driver = createWebDriver();
-    }
-    @Test
-    @Step
-    public void checkTabs() {
         driver.get(MAIN_URL);
-        MainPage objMainPage = new MainPage(driver);
-        objMainPage.checkSaucesTabActivation();
-        objMainPage.checkFillingsTabActivation();
-        objMainPage.checkRollsTabActivation();
-    }
-    @After
-    public void tearDown() {
-        driver.close();
     }
 
+    @Test
+    @Step("Проверка активации вкладки Соусы")
+    public void checkSaucesTabActivation() {
+        MainPage objMainPage = new MainPage(driver);
+        objMainPage.checkSaucesTabActivation();
+    }
+
+    @Test
+    @Step("Проверка активации вкладки Начинки")
+    public void checkFillingsTabActivation() {
+        MainPage objMainPage = new MainPage(driver);
+        objMainPage.checkFillingsTabActivation();
+    }
+
+    @Test
+    @Step("Проверка активации вкладки Булки")
+    public void checkRollsTabActivation() {
+        MainPage objMainPage = new MainPage(driver);
+        objMainPage.checkSaucesTabActivation();
+        objMainPage.checkRollsTabActivation();
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
 }

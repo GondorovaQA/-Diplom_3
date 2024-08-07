@@ -18,10 +18,10 @@ public class PersonalAccountPage {
 
     public void checkLogOut() {
         driver.findElement(logOutButton).click();
-        String expectedUrl = "https://stellarburgers.nomoreparties.site/login"; // Ожидаемый URL - главная страница
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5)); // Ожидание до 5 секунд
-        wait.until(ExpectedConditions.urlToBe(expectedUrl)); // Ожидание того, что URL станет ожидаемым
-        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl); // Проверка, что текущий URL соответствует ожидаемому
+        String expectedUrl = "https://stellarburgers.nomoreparties.site/login";
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+        Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
 
 }
